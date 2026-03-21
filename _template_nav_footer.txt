@@ -1,0 +1,61 @@
+<!-- NAV + TICKER commun à toutes les pages -->
+<!-- Ticker -->
+<div class="ticker">
+  <span class="tag" style="color:var(--coral); flex-shrink:0;">New this week</span>
+  <div class="ticker-items">
+    <span>Bamboo Desk Set · $28</span>
+    <span>·</span><span>LED Warm Lamp · $45</span>
+    <span>·</span><span>Linen Storage · $34</span>
+    <span>·</span><span>Weekly Planner · $18</span>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="index.html" class="nav-logo"><div class="dot"></div>Nestly</a>
+  <div class="nav-links">
+    <a href="home-office.html">Home Office</a>
+    <a href="living-room.html">Living Room</a>
+    <a href="bedroom.html">Bedroom</a>
+    <a href="organization.html">Organization</a>
+    <a href="family-spaces.html">Family Spaces</a>
+  </div>
+  <a href="index.html#picks" class="btn btn-primary" style="padding:9px 18px;font-size:11px;">Shop Amazon Picks</a>
+</nav>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo"><div class="dot" style="background:var(--coral);"></div>Nestly</div>
+      <p style="font-size:13px;color:#5A5248;margin-top:10px;max-width:240px;line-height:1.7;">Design your space. Upgrade your focus. Curated Amazon picks for the intentional home.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Spaces</h4>
+        <a href="home-office.html">Home Office</a>
+        <a href="living-room.html">Living Room</a>
+        <a href="bedroom.html">Bedroom</a>
+        <a href="organization.html">Organization</a>
+        <a href="family-spaces.html">Family Spaces</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">All Articles</a>
+        <a href="productivity.html">Productivity</a>
+        <a href="lifestyle.html">Lifestyle</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">About Nestly</a>
+        <a href="#">Newsletter</a>
+        <a href="#">Pinterest</a>
+        <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Nestly. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> · <a href="affiliate-disclosure.html">Affiliate Disclosure</a></p>
+  </div>
+</footer>

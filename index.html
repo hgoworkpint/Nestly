@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nestly — Design Your Space. Upgrade Your Focus.</title>
+  <meta name="description" content="Hand-picked Amazon finds for decor lovers and productivity seekers. Curated home office, living room, bedroom and organization picks that make your space beautiful and your mind clear." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .pill { border-radius:20px; padding:7px 18px; font-size:12px; font-weight:500; display:inline-block; cursor:pointer; transition:all 0.2s; border:none; }
+    .pill:hover { opacity:0.85; }
+    .hero { display:grid; grid-template-columns:54% 46%; min-height:420px; }
+    .hero-left { padding:60px 40px 56px; display:flex; flex-direction:column; justify-content:center; }
+    .hero-eyebrow { display:flex; align-items:center; gap:10px; margin-bottom:24px; }
+    .hero h1 { font-size:44px; color:var(--dark); margin-bottom:22px; }
+    .hero h1 em { font-style:italic; font-weight:400; color:var(--coral); }
+    .hero p { font-size:15px; line-height:1.8; color:var(--muted); max-width:340px; margin-bottom:38px; }
+    .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+    .hero-right { background:var(--sage-light); display:flex; align-items:center; justify-content:center; padding:40px 32px; position:relative; min-height:300px; }
+    .hero-card { background:var(--white); border-radius:16px; border:1px solid var(--border); padding:26px 22px; width:200px; display:flex; flex-direction:column; gap:16px; box-shadow:0 8px 32px rgba(40,35,30,0.1); }
+    .hero-card-img { height:100px; background:var(--cream-dark); border-radius:10px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hero-card-img img { width:100%; height:100%; object-fit:cover; border-radius:10px; }
+    .hero-badge { position:absolute; top:24px; right:20px; background:var(--white); border-radius:10px; padding:10px 14px; border:1px solid var(--border); box-shadow:0 4px 16px rgba(40,35,30,0.08); }
+    .categories { padding:18px 32px; background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border); display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .featured-card { border-radius:14px; overflow:hidden; border:1px solid var(--border); display:grid; grid-template-columns:1fr 1fr; background:var(--white); }
+    .featured-img { background:var(--dark); min-height:260px; display:flex; flex-direction:column; justify-content:space-between; padding:28px; overflow:hidden; }
+    .featured-img img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.6; }
+    .featured-content { padding:38px 32px; display:flex; flex-direction:column; justify-content:center; }
+    .featured-content h2 { font-size:22px; color:var(--dark); margin-bottom:14px; margin-top:12px; }
+    .featured-content p { font-size:14px; line-height:1.75; color:var(--muted); margin-bottom:26px; }
+    .article-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .article-card { cursor:pointer; }
+    .article-thumb { height:130px; display:flex; align-items:flex-end; padding:16px; overflow:hidden; }
+    .article-thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .article-body-card { padding:18px; }
+    .article-body-card h3 { font-size:15px; line-height:1.4; color:var(--dark); margin-bottom:8px; margin-top:8px; }
+    .article-body-card p { font-size:13px; color:var(--muted); line-height:1.65; }
+    .ba-section { background:var(--cream-dark); padding:52px 32px; }
+    .ba-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:700px; margin:0 auto; }
+    .ba-card { border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+    .products-section { background:var(--dark); padding:52px 32px; }
+    .products-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .product-card-home { background:#38342E; border-radius:12px; padding:16px; display:flex; gap:16px; align-items:center; border:1px solid #4A4540; transition:border-color 0.2s; cursor:pointer; }
+    .product-card-home:hover { border-color:var(--coral); }
+    .product-thumb-home { width:58px; height:58px; background:#4A4540; border-radius:10px; flex-shrink:0; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .product-thumb-home img { width:100%; height:100%; object-fit:cover; border-radius:10px; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up { animation:fadeUp 0.55s ease both; }
+    .delay-1 { animation-delay:0.1s; }
+    .delay-2 { animation-delay:0.2s; }
+    .delay-3 { animation-delay:0.3s; }
+    @media(max-width:768px){
+      .hero{grid-template-columns:1fr}
+      .hero h1{font-size:32px}
+      .featured-card{grid-template-columns:1fr}
+      .article-grid{grid-template-columns:1fr 1fr}
+      .products-grid{grid-template-columns:1fr}
+      .ba-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:480px){
+      .article-grid{grid-template-columns:1fr}
+      .hero-left{padding:40px 20px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <span class="tag" style="color:var(--coral);flex-shrink:0;">New this week</span>
+    <div class="ticker-items">
+      <span>Bamboo Desk Set · $28</span><span>·</span>
+      <span>LED Warm Lamp · $45</span><span>·</span>
+      <span>Linen Storage · $34</span><span>·</span>
+      <span>Weekly Planner · $18</span><span>·</span>
+      <span>Rope Basket Set · $32</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo"><div class="dot"></div>Nestly</a>
+    <div class="nav-links">
+      <a href="home-office.html">Home Office</a>
+      <a href="living-room.html">Living Room</a>
+      <a href="bedroom.html">Bedroom</a>
+      <a href="organization.html">Organization</a>
+      <a href="family-spaces.html">Family Spaces</a>
+    </div>
+    <a href="#picks" class="btn btn-primary" style="padding:9px 18px;font-size:11px;">Shop Amazon Picks</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow fade-up">
+        <div class="dot"></div>
+        <span class="tag" style="color:var(--coral);">Curated for the intentional home</span>
+      </div>
+      <h1 class="fade-up delay-1">Design your space.<br><em>Upgrade your focus.</em></h1>
+      <p class="fade-up delay-2">Hand-picked Amazon finds for people who want their home to be both beautiful and productive. Real spaces. Real results. Curated weekly.</p>
+      <div class="hero-ctas fade-up delay-3">
+        <a href="home-office.html" class="btn btn-primary">Explore Picks</a>
+        <a href="#articles" class="btn btn-outline">Read the Blog</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card fade-up delay-2">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <span class="tag" style="color:var(--muted-light);">Top pick</span>
+          <span style="background:var(--coral);color:white;font-size:14px;font-weight:700;padding:4px 10px;border-radius:6px;font-family:'Outfit',sans-serif;">$28</span>
+        </div>
+        <div class="hero-card-img">
+          <!-- REMPLACE PAR: <img src="images/hero-product.jpg" alt="Bamboo Desk Organizer"> -->
+          <div style="display:flex;gap:8px;align-items:flex-end;">
+            <div style="width:20px;height:60px;background:var(--sage);border-radius:4px;opacity:0.6;"></div>
+            <div style="width:20px;height:44px;background:var(--sage);border-radius:4px;opacity:0.45;"></div>
+            <div style="width:20px;height:52px;background:var(--sage);border-radius:4px;opacity:0.55;"></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--dark);margin-bottom:4px;line-height:1.3;">Bamboo Desk Organizer</div>
+          <div style="font-size:11px;color:var(--muted-light);">4.8★ · 2,400+ reviews</div>
+        </div>
+        <a href="#" target="_blank" class="btn btn-primary" style="text-align:center;padding:10px;font-size:11px;">View on Amazon →</a>
+      </div>
+      <div class="hero-badge">
+        <div class="tag" style="color:var(--muted);margin-bottom:3px;">This week</div>
+        <div style="font-size:14px;font-weight:500;color:var(--dark);">+24 new picks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <div class="categories">
+    <a href="index.html"><button class="pill" style="background:var(--dark);color:white;">All</button></a>
+    <a href="home-office.html"><button class="pill" style="background:var(--cream-dark);color:#6A5E52;">Home Office</button></a>
+    <a href="living-room.html"><button class="pill" style="background:var(--cream-dark);color:#6A5E52;">Living Room</button></a>
+    <a href="bedroom.html"><button class="pill" style="background:var(--cream-dark);color:#6A5E52;">Bedroom</button></a>
+    <a href="organization.html"><button class="pill" style="background:var(--cream-dark);color:#6A5E52;">Organization</button></a>
+    <a href="family-spaces.html"><button class="pill" style="background:var(--cream-dark);color:#6A5E52;">Family Spaces</button></a>
+    <a href="productivity.html"><button class="pill" style="background:var(--cream-dark);color:#6A5E52;">Productivity</button></a>
+    <a href="organization.html"><button class="pill" style="background:var(--coral-light);color:var(--coral-dark);">Under $50</button></a>
+  </div>
+
+  <!-- FEATURED ARTICLE -->
+  <section class="section" id="articles">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+      <div class="dot"></div>
+      <span class="tag" style="color:var(--coral);">Featured Article</span>
+    </div>
+    <a href="home-office.html" class="featured-card" style="display:grid;">
+      <div class="featured-img" style="position:relative;">
+        <!-- REMPLACE PAR: <img src="images/featured-home-office.jpg" alt="Home Office"> -->
+        <div style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;">
+          <div class="dot" style="background:var(--coral);"></div>
+          <span class="tag" style="color:#7A6E62;">Home Office</span>
+        </div>
+        <div style="position:relative;z-index:1;display:flex;flex-direction:column;gap:7px;">
+          <div style="width:80px;height:3px;background:var(--coral);border-radius:2px;"></div>
+          <div style="width:52px;height:3px;background:#3E3830;border-radius:2px;"></div>
+        </div>
+      </div>
+      <div class="featured-content">
+        <span class="tag" style="color:var(--muted-light);">8 min read · Mar 2026</span>
+        <h2>Home Office Organization Ideas That Boost Focus and Still Look Stylish</h2>
+        <p>We tested dozens of Amazon products so you don't have to — from ambient lighting to smart cable management, here's what actually transforms your WFH space.</p>
+        <div><span class="btn btn-primary" style="padding:11px 22px;">Read Article →</span></div>
+      </div>
+    </a>
+  </section>
+
+  <!-- ARTICLE GRID -->
+  <section class="section" style="padding-top:0;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+      <div class="dot" style="background:var(--sage);"></div>
+      <span class="tag" style="color:var(--sage);">Latest Articles</span>
+    </div>
+    <div class="article-grid">
+
+      <a href="organization.html" class="card article-card">
+        <div class="article-thumb" style="background:#2A2520;position:relative;">
+          <!-- REMPLACE PAR: <img src="images/thumb-organization.jpg" alt="Organization"> -->
+          <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;position:relative;z-index:1;"></div>
+        </div>
+        <div class="article-body-card">
+          <span class="tag" style="color:var(--coral);">Organization</span>
+          <h3>Best Stylish Storage Solutions That Hide Clutter Beautifully</h3>
+          <p>Functional and beautiful — because it's possible to have both.</p>
+        </div>
+      </a>
+
+      <a href="living-room.html" class="card article-card">
+        <div class="article-thumb" style="background:#1C2418;position:relative;">
+          <!-- REMPLACE PAR: <img src="images/thumb-living-room.jpg" alt="Living Room"> -->
+          <div style="width:40px;height:3px;background:var(--sage);border-radius:2px;position:relative;z-index:1;"></div>
+        </div>
+        <div class="article-body-card">
+          <span class="tag" style="color:var(--sage);">Living Room</span>
+          <h3>Living Room Organization Without Sacrificing Style</h3>
+          <p>Smart storage ideas that blend in — not stick out.</p>
+        </div>
+      </a>
+
+      <a href="bedroom.html" class="card article-card">
+        <div class="article-thumb" style="background:#201A2A;position:relative;">
+          <!-- REMPLACE PAR: <img src="images/thumb-bedroom.jpg" alt="Bedroom"> -->
+          <div style="width:40px;height:3px;background:var(--purple);border-radius:2px;position:relative;z-index:1;"></div>
+        </div>
+        <div class="article-body-card">
+          <span class="tag" style="color:var(--purple);">Bedroom</span>
+          <h3>Bedroom Organization Ideas for a Calm and Clutter-Free Space</h3>
+          <p>A calmer room means a calmer mind.</p>
+        </div>
+      </a>
+
+      <a href="family-spaces.html" class="card article-card">
+        <div class="article-thumb" style="background:#1A2218;position:relative;">
+          <!-- REMPLACE PAR: <img src="images/thumb-family.jpg" alt="Family Spaces"> -->
+          <div style="width:40px;height:3px;background:var(--sage-dark);border-radius:2px;position:relative;z-index:1;"></div>
+        </div>
+        <div class="article-body-card">
+          <span class="tag" style="color:var(--sage-dark);">Family Spaces</span>
+          <h3>Cute Kids & Nursery Organization Ideas That Actually Keep Things Tidy</h3>
+          <p>Organization that grows with your family.</p>
+        </div>
+      </a>
+
+      <a href="lifestyle.html" class="card article-card">
+        <div class="article-thumb" style="background:#22201A;position:relative;">
+          <!-- REMPLACE PAR: <img src="images/thumb-lifestyle.jpg" alt="Lifestyle"> -->
+          <div style="width:40px;height:3px;background:#C9A96E;border-radius:2px;position:relative;z-index:1;"></div>
+        </div>
+        <div class="article-body-card">
+          <span class="tag" style="color:#A07840;">Lifestyle</span>
+          <h3>Seasonal Home Refresh Ideas to Keep Your Space Organized All Year</h3>
+          <p>Simple habits that keep your home feeling fresh every season.</p>
+        </div>
+      </a>
+
+      <a href="productivity.html" class="card article-card">
+        <div class="article-thumb" style="background:#281E1E;position:relative;">
+          <!-- REMPLACE PAR: <img src="images/thumb-productivity.jpg" alt="Productivity"> -->
+          <div style="width:40px;height:3px;background:var(--coral);border-radius:2px;position:relative;z-index:1;"></div>
+        </div>
+        <div class="article-body-card">
+          <span class="tag" style="color:var(--coral);">Productivity</span>
+          <h3>Smart Home Style & Organization Ideas That Make Any Space Look Put Together</h3>
+          <p>The best-performing spaces all share these simple principles.</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="ba-section">
+    <div style="display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:12px;">
+      <div class="dot"></div>
+      <span class="tag" style="color:var(--coral);">Transform Your Space</span>
+    </div>
+    <h2 style="text-align:center;font-size:28px;color:var(--dark);margin-bottom:10px;">See the difference the right setup makes</h2>
+    <p style="text-align:center;font-size:14px;color:var(--muted);margin-bottom:36px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.75;">Reduce visual clutter, boost your focus, and feel better in the space you live and work in.</p>
+    <div class="ba-grid">
+      <div class="ba-card">
+        <div style="padding:10px 16px;background:#F5E8E8;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#A03030;">Before — Cluttered</div>
+        <div style="height:160px;background:#E8DDD5;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <!-- REMPLACE PAR: <img src="images/before.jpg" alt="Before"> style="width:100%;height:100%;object-fit:cover" -->
+          <div style="display:flex;flex-direction:column;gap:5px;transform:rotate(-3deg);">
+            <div style="width:80px;height:8px;background:#C0B0A0;border-radius:2px;"></div>
+            <div style="width:60px;height:8px;background:#B0A090;border-radius:2px;margin-left:12px;"></div>
+            <div style="width:90px;height:8px;background:#C8B8A8;border-radius:2px;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div style="padding:10px 16px;background:var(--sage-light);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);">After — Nestly Setup ✓</div>
+        <div style="height:160px;background:#F5F2EC;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+          <!-- REMPLACE PAR: <img src="images/after.jpg" alt="After"> style="width:100%;height:100%;object-fit:cover" -->
+          <div style="display:flex;gap:10px;align-items:flex-end;">
+            <div style="width:22px;height:64px;background:var(--sage);border-radius:5px;opacity:0.6;"></div>
+            <div style="width:22px;height:48px;background:var(--sage);border-radius:5px;opacity:0.45;"></div>
+            <div style="width:36px;height:36px;background:var(--cream-dark);border-radius:6px;border:1px solid var(--border);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="home-office.html" class="btn btn-primary">Shop the Setup →</a>
+    </div>
+  </section>
+
+  <!-- SHOP THE LOOK -->
+  <section class="products-section" id="picks">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <div class="dot"></div>
+      <span class="tag" style="color:var(--coral);">Shop the Look</span>
+    </div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:24px;color:#F0EBE0;margin-bottom:28px;font-weight:700;">This week's top Amazon picks</h2>
+    <div class="products-grid">
+
+      <a href="#" target="_blank" rel="nofollow sponsored" class="product-card-home">
+        <div class="product-thumb-home">
+          <!-- REMPLACE PAR: <img src="images/prod-bamboo.jpg" alt="Bamboo Organizer"> -->
+          <div style="width:28px;height:28px;background:var(--coral);border-radius:5px;opacity:0.8;"></div>
+        </div>
+        <div>
+          <div class="tag" style="color:#7A6E62;">Bestseller</div>
+          <div style="font-size:13px;color:#F0EBE0;font-weight:500;margin:4px 0 2px;line-height:1.3;">Bamboo Desk Organizer Set</div>
+          <div style="font-size:16px;color:var(--coral);font-weight:700;font-family:'Outfit',sans-serif;">$28</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="nofollow sponsored" class="product-card-home">
+        <div class="product-thumb-home">
+          <!-- REMPLACE PAR: <img src="images/prod-lamp.jpg" alt="LED Lamp"> -->
+          <div style="width:28px;height:28px;background:var(--sage);border-radius:5px;opacity:0.8;"></div>
+        </div>
+        <div>
+          <div class="tag" style="color:#7A6E62;">#1 Pick</div>
+          <div style="font-size:13px;color:#F0EBE0;font-weight:500;margin:4px 0 2px;line-height:1.3;">LED Desk Lamp — Warm Glow</div>
+          <div style="font-size:16px;color:var(--coral);font-weight:700;font-family:'Outfit',sans-serif;">$45</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="nofollow sponsored" class="product-card-home">
+        <div class="product-thumb-home">
+          <!-- REMPLACE PAR: <img src="images/prod-basket.jpg" alt="Storage Basket"> -->
+          <div style="width:28px;height:28px;background:#C9A96E;border-radius:5px;opacity:0.8;"></div>
+        </div>
+        <div>
+          <div class="tag" style="color:#7A6E62;">Trending</div>
+          <div style="font-size:13px;color:#F0EBE0;font-weight:500;margin:4px 0 2px;line-height:1.3;">Linen Storage Cube Baskets</div>
+          <div style="font-size:16px;color:var(--coral);font-weight:700;font-family:'Outfit',sans-serif;">$34</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="nofollow sponsored" class="product-card-home">
+        <div class="product-thumb-home">
+          <!-- REMPLACE PAR: <img src="images/prod-planner.jpg" alt="Planner"> -->
+          <div style="width:28px;height:28px;background:var(--purple);border-radius:5px;opacity:0.8;"></div>
+        </div>
+        <div>
+          <div class="tag" style="color:#7A6E62;">Staff Pick</div>
+          <div style="font-size:13px;color:#F0EBE0;font-weight:500;margin:4px 0 2px;line-height:1.3;">Minimalist Weekly Planner</div>
+          <div style="font-size:16px;color:var(--coral);font-weight:700;font-family:'Outfit',sans-serif;">$18</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="nofollow sponsored" class="product-card-home">
+        <div class="product-thumb-home">
+          <!-- REMPLACE PAR: <img src="images/prod-basket2.jpg" alt="Rope Basket"> -->
+          <div style="width:28px;height:28px;background:#7AB5A0;border-radius:5px;opacity:0.8;"></div>
+        </div>
+        <div>
+          <div class="tag" style="color:#7A6E62;">Top Rated</div>
+          <div style="font-size:13px;color:#F0EBE0;font-weight:500;margin:4px 0 2px;line-height:1.3;">Rope Toy Basket for Nursery</div>
+          <div style="font-size:16px;color:var(--coral);font-weight:700;font-family:'Outfit',sans-serif;">$32</div>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="nofollow sponsored" class="product-card-home">
+        <div class="product-thumb-home">
+          <!-- REMPLACE PAR: <img src="images/prod-acrylic.jpg" alt="Acrylic Organizer"> -->
+          <div style="width:28px;height:28px;background:#C0A882;border-radius:5px;opacity:0.8;"></div>
+        </div>
+        <div>
+          <div class="tag" style="color:#7A6E62;">New In</div>
+          <div style="font-size:13px;color:#F0EBE0;font-weight:500;margin:4px 0 2px;line-height:1.3;">Acrylic Drawer Dividers Set</div>
+          <div style="font-size:16px;color:var(--coral);font-weight:700;font-family:'Outfit',sans-serif;">$22</div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <h2>New picks, every week.</h2>
+    <p>Join 12,000+ readers who get the best Amazon home and productivity finds curated and delivered straight to their inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="your@email.com" />
+      <button type="button">Subscribe</button>
+    </div>
+    <p style="font-size:11px;color:rgba(255,255,255,0.55);margin-top:16px;">No spam, ever. Unsubscribe any time.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><div class="dot" style="background:var(--coral);"></div>Nestly</div>
+        <p style="font-size:13px;color:#5A5248;margin-top:10px;max-width:240px;line-height:1.7;">Design your space. Upgrade your focus. Curated Amazon picks for the intentional home.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Spaces</h4>
+          <a href="home-office.html">Home Office</a>
+          <a href="living-room.html">Living Room</a>
+          <a href="bedroom.html">Bedroom</a>
+          <a href="organization.html">Organization</a>
+          <a href="family-spaces.html">Family Spaces</a>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="index.html">All Articles</a>
+          <a href="productivity.html">Productivity</a>
+          <a href="lifestyle.html">Lifestyle</a>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="#">About Nestly</a>
+          <a href="#">Newsletter</a>
+          <a href="#">Pinterest</a>
+          <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Nestly. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> · <a href="affiliate-disclosure.html">Affiliate Disclosure</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
