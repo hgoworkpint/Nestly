@@ -110,47 +110,27 @@
         <a href="#articles" class="btn btn-outline">Read the Blog</a>
       </div>
     </div>
-  <div class="hero-right">
+ <div class="hero-right">
   <div class="pdf-showcase fade-up delay-2">
-    <div class="pdf-eyebrow">
+
+    <div style="display:flex;align-items:center;gap:8px;">
       <div class="dot"></div>
       <span class="tag" style="color:var(--coral);">Nestly Guide</span>
     </div>
+
     <div class="pdf-title">Home Reset<br>System</div>
     <div class="pdf-subtitle">Transform your space in 7 days.</div>
 
-    <div class="pdf-slides">
-
-      <!-- IMAGE 1 : renomme ton fichier pdf-preview-1.jpg et mets-le dans images/ -->
-      <div class="pdf-slide" onclick="openLightbox('images/pdf-preview-1.jpg')">
-        <img src="images/pdf-preview-1.jpg" alt="">
-        <div class="pdf-slide-overlay"><span>Home Reset<br>System</span></div>
-      </div>
-
-      <!-- IMAGE 2 : renomme ton fichier pdf-preview-2.jpg et mets-le dans images/ -->
-      <div class="pdf-slide" onclick="openLightbox('images/pdf-preview-2.jpg')">
-        <img src="images/pdf-preview-2.jpg" alt="">
-        <div class="pdf-slide-overlay"><span>Home Reset<br>System</span></div>
-      </div>
-
-      <!-- IMAGE 3 : renomme ton fichier pdf-preview-3.jpg et mets-le dans images/ -->
-      <div class="pdf-slide" onclick="openLightbox('images/pdf-preview-3.jpg')">
-        <img src="images/pdf-preview-3.jpg" alt="">
-        <div class="pdf-slide-overlay"><span>Home Reset<br>System</span></div>
-      </div>
-
-      <!-- SLOT 4 LIBRE — décommente quand tu veux ajouter une 4e image
-      <div class="pdf-slide" onclick="openLightbox('images/pdf-preview-4.jpg')">
-        <img src="images/pdf-preview-4.jpg" alt="">
-        <div class="pdf-slide-overlay"><span>Home Reset<br>System</span></div>
-      </div>
-      -->
-
+    <div class="pdf-images">
+      <img src="images/pdf-preview-1.jpg" alt="Preview 1">
+      <img src="images/pdf-preview-2.jpg" alt="Preview 2">
+      <img src="images/pdf-preview-3.jpg" alt="Preview 3">
     </div>
 
     <a href="https://nestlyy.gumroad.com/l/wrxcdn" target="_blank" rel="noopener" class="btn btn-primary pdf-gumroad-btn">
       Get the Guide →
     </a>
+
   </div>
 </div>
   </section>
@@ -438,27 +418,5 @@
       <p><a href="#">Privacy Policy</a> · <a href="affiliate-disclosure.html">Affiliate Disclosure</a></p>
     </div>
   </footer>
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="lightbox-close" onclick="closeLightbox(event)">✕</span>
-  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
-</div>
-
-<script>
-  function openLightbox(src) {
-    document.getElementById('lightbox-img').src = src;
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox(e) {
-    if (e) e.stopPropagation();
-    document.getElementById('lightbox').classList.remove('active');
-    document.getElementById('lightbox-img').src = '';
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-</script>
 </body>
 </html>
